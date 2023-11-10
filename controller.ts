@@ -4,6 +4,7 @@ export const Home = async (req: Request, res: Response, next: NextFunction) => {
 
     return res.status(200).json({ status: "success", time: new Date().toString() })
 }
+
 export const GetUsers = async (req: Request, res: Response, next: NextFunction) => {
     let users = [
         { username: "nishu kumar" },
