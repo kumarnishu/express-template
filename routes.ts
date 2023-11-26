@@ -1,9 +1,11 @@
 import express from "express"
-import { GetUsers, Home } from "./controller";
+import { Signup, Home, Login } from "./controller";
+import { isAuthenticated } from "./auth.middleware";
 
-const router=express.Router()
+const router = express.Router()
 
-router.route("/").get(Home)
-router.route("/users").get(GetUsers)
+router.route("/").get(isAuthenticated,Home)
+router.route("/users").post(Signup)
+router.route("/login").post(Login)
 
 export default router
